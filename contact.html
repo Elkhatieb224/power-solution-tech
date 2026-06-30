@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا | Power Solution Tech</title>
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="assets/css/icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/rtl.css">
+    <link rel="stylesheet" href="assets/css/premium-hero.css">
+    <link rel="stylesheet" href="assets/css/premium-pages.css">
+</head>
+<body class="body-wrapper page-premium" data-page="contact">
+
+    <canvas id="canvas" aria-hidden="true"></canvas>
+
+    <div class="premium-page">
+        <div id="site-nav"></div>
+
+        <header class="premium-page-hero">
+            <span class="premium-page-hero__eyebrow">نحن هنا لمساعدتك</span>
+            <h1><span class="gradient-text">اتصل</span> بنا</h1>
+            <p>أخبرنا عن مشروعك وسنرد عليك في أقرب وقت ممكن.</p>
+        </header>
+
+        <main class="premium-main">
+            <div class="premium-contact-cards">
+                <div class="premium-contact-card">
+                    <div class="premium-contact-card__icon"><i class="fal fa-envelope"></i></div>
+                    <h3>البريد الإلكتروني</h3>
+                    <p><a href="mailto:info@powersolution.tech" style="color:inherit">info@powersolution.tech</a></p>
+                </div>
+                <div class="premium-contact-card">
+                    <div class="premium-contact-card__icon"><i class="fal fa-phone"></i></div>
+                    <h3>الهاتف</h3>
+                    <p><a href="tel:+966500000000" style="color:inherit" dir="ltr">+966 50 000 0000</a></p>
+                </div>
+                <div class="premium-contact-card">
+                    <div class="premium-contact-card__icon"><i class="fal fa-map-marker-alt"></i></div>
+                    <h3>الموقع</h3>
+                    <p>المملكة العربية السعودية</p>
+                </div>
+            </div>
+
+            <div class="premium-section-title">
+                <h2>أرسل رسالة</h2>
+                <p>املأ النموذج وسنتواصل معك خلال 24 ساعة</p>
+            </div>
+
+            <div class="premium-contact-form-wrap">
+                <form action="mail.php" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="fname">الاسم الكامل</label>
+                            <input type="text" id="fname" name="name" placeholder="اسمك" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" placeholder="email@example.com" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone">رقم الجوال</label>
+                            <input type="tel" id="phone" name="phone" placeholder="05xxxxxxxx">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="service">نوع الخدمة</label>
+                            <select id="service" name="service">
+                                <option value="web">تطوير الويب</option>
+                                <option value="systems">الأنظمة</option>
+                                <option value="apps">التطبيقات</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="message">رسالتك</label>
+                            <textarea id="message" name="message" placeholder="صف مشروعك أو استفسارك..." required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="pst-btn-primary">إرسال الرسالة ←</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <div id="site-footer"></div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script type="module" src="assets/js/premium-layout.js"></script>
+</body>
+</html>

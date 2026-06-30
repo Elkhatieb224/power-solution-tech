@@ -1,0 +1,224 @@
+/*
+Template: QuanTech
+Author: Modina Theme
+Author URI: https://themeforest.net/user/modinatheme/
+Description: IT Solution & Technology HTML  Template
+Version: 1.2.0
+*/
+
+/*
+=================================
+|***    Table of contents:   ***|
+=================================
+
+Main Style file-> assets/css/style.css 
+
+All the SCSS File in SCSS Folder of Assets Folder. You can read the doc file also for better understand.
+
+// BASIC
+@import 'basic';
+
+// MIXIN
+@import 'variables';
+
+// TYPOGRAPHY
+@import 'typography';
+
+// MIX
+@import 'mix';
+
+// HELPER
+@import 'helper';
+
+// ICON FONTS
+@import 'icon';
+
+// ANIMATION
+@import 'animation';
+
+// Button 
+@import 'btn';
+
+// Colors 
+@import 'colors';
+
+// Preloader 
+@import 'preloader';
+
+/* ----------------------------------
+    Template Section Styles
+ ------------------------------------*/
+
+ /* // Menu - Header Section 
+ @import 'header';
+ 
+ // Hero Slide - Section 
+ @import 'hero';
+ 
+ // Section Title - Heading 
+ @import 'section';
+ 
+ // About - Section 
+ @import 'about';
+ 
+ // Features - Section 
+ @import 'features';
+ 
+ // services - Section 
+ @import 'services';
+ 
+ // testimonial - Section 
+ @import 'testimonial';
+ 
+ // Portfolio - Cases - Section 
+ @import 'project';
+ 
+ // Price Table - Section 
+ @import 'price';
+ 
+ // Call To Action - Section 
+ @import 'cta';
+ 
+ // Content Block - Section 
+ @import 'contentblock';
+ 
+ // team - Section 
+ @import 'team';
+ 
+ // funfact - Section 
+ @import 'funfact';
+ 
+ // FAQ - Section 
+ @import 'faq';
+ 
+ // Blog - Section 
+ @import 'blog';
+ 
+ // Contact Us - Section 
+ @import 'contact';
+ 
+ // footer - Section 
+ @import 'footer';n facts */
+
+/* Clients faces marquee bar (index) */
+.clients-faces-bar-wrapper {
+  position: relative;
+  z-index: 2;
+  margin-top: -100px;
+  width: 100%;
+}
+
+.clients-faces-bar {
+  background: #d6fa52;
+  width: 100%;
+  padding: 28px 0 38px;
+  overflow: hidden;
+}
+
+.clients-marquee {
+  overflow: hidden;
+  width: 100%;
+  direction: ltr;
+}
+
+.clients-marquee-track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  direction: ltr;
+  will-change: transform;
+  animation: clients-marquee-scroll var(--marquee-duration, 40s) linear infinite;
+}
+
+.clients-marquee-track.is-ready {
+  animation-name: clients-marquee-scroll;
+}
+
+.clients-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.clients-marquee-set {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 48px;
+  padding-right: 48px;
+}
+
+.single-client-face {
+  flex: 0 0 auto;
+  text-align: center;
+  width: 110px;
+}
+
+.client-face-img {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #5f2dee;
+  margin: 0 auto 10px;
+  background: #fff;
+}
+
+.client-face-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.single-client-face span {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0D0D0F;
+  line-height: 1.2;
+  white-space: nowrap;
+  direction: rtl;
+  unicode-bidi: plaintext;
+}
+
+@keyframes clients-marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(var(--marquee-distance, -50%), 0, 0);
+  }
+}
+
+@media (max-width: 767px) {
+  .clients-faces-bar-wrapper {
+    margin-top: -60px;
+  }
+
+  .clients-faces-bar {
+    padding: 22px 0 30px;
+  }
+
+  .clients-marquee-set {
+    gap: 28px;
+    padding-right: 28px;
+  }
+
+  .single-client-face {
+    width: 88px;
+  }
+
+  .client-face-img {
+    width: 68px;
+    height: 68px;
+    border-width: 3px;
+  }
+
+  .single-client-face span {
+    font-size: 12px;
+  }
+
+  .clients-marquee-track {
+    animation-duration: 28s;
+  }
+}
+
