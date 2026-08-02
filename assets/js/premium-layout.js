@@ -165,31 +165,5 @@ if (footerRoot) {
   footerRoot.innerHTML = renderFooter();
 }
 
-function initProjectFilter() {
-  const grid = document.querySelector(".premium-projects-grid");
-  const buttons = document.querySelectorAll(".premium-filter button");
-
-  if (!grid || !buttons.length) {
-    return;
-  }
-
-  const items = grid.querySelectorAll("[data-category]");
-
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      buttons.forEach((item) => item.classList.remove("active"));
-      button.classList.add("active");
-
-      const filter = button.dataset.filter;
-
-      items.forEach((item) => {
-        const show = filter === "*" || item.dataset.category === filter;
-        item.style.display = show ? "" : "none";
-      });
-    });
-  });
-}
-
 initMobileMenu();
 initCanvas();
-initProjectFilter();

@@ -211,6 +211,14 @@
   gap: 24px;
 }
 
+.pst-projects-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #a1a1aa;
+  padding: 48px 24px;
+  font-size: 1.05rem;
+}
+
 .premium-project-card {
   position: relative;
   border-radius: 20px;

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم | Power Solution Tech</title>
+  <link rel="shortcut icon" href="../assets/img/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+  <header class="admin-header">
+    <div class="admin-header__brand">
+      <strong>لوحة التحكم</strong>
+      <span>Power Solution Tech</span>
+    </div>
+    <div class="admin-header__actions">
+      <a href="../index.html" class="admin-btn admin-btn--ghost" target="_blank" rel="noopener">عرض الموقع</a>
+      <button type="button" class="admin-btn admin-btn--ghost" id="logout-btn">خروج</button>
+    </div>
+  </header>
+
+  <nav class="admin-tabs" id="admin-tabs">
+    <button type="button" class="admin-tab active" data-tab="projects">المشاريع</button>
+    <button type="button" class="admin-tab" data-tab="clients">العملاء</button>
+    <button type="button" class="admin-tab" data-tab="testimonials">آراء العملاء</button>
+    <button type="button" class="admin-tab" data-tab="blog">المدونة</button>
+    <button type="button" class="admin-tab" data-tab="settings">صور الصفحة</button>
+  </nav>
+
+  <main class="admin-main">
+    <!-- Projects -->
+    <div class="admin-tab-panel active" data-panel="projects">
+      <section class="admin-panel">
+        <h2 id="project-form-title">إضافة مشروع جديد</h2>
+        <form id="project-form" class="admin-form admin-form--grid">
+          <input type="hidden" id="project-id">
+          <div class="admin-field">
+            <label for="project-title">عنوان المشروع</label>
+            <input type="text" id="project-title" required>
+          </div>
+          <div class="admin-field">
+            <label for="project-category">التصنيف</label>
+            <select id="project-category" required>
+              <option value="web">ويب</option>
+              <option value="systems">أنظمة</option>
+              <option value="apps">تطبيقات</option>
+            </select>
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="project-description">الوصف</label>
+            <textarea id="project-description" rows="3"></textarea>
+          </div>
+          <div class="admin-field">
+            <label for="project-sort">ترتيب العرض</label>
+            <input type="number" id="project-sort" value="0" min="0">
+          </div>
+          <div class="admin-field">
+            <label for="project-image">صورة المشروع</label>
+            <input type="file" id="project-image" accept="image/jpeg,image/png,image/webp">
+            <small id="project-image-hint">مطلوبة عند الإضافة.</small>
+          </div>
+          <div class="admin-field admin-field--full admin-form__actions">
+            <button type="submit" class="admin-btn admin-btn--primary">حفظ المشروع</button>
+            <button type="button" class="admin-btn admin-btn--ghost" id="project-cancel" hidden>إلغاء</button>
+          </div>
+        </form>
+        <p class="admin-message" id="project-message" hidden></p>
+      </section>
+      <section class="admin-panel">
+        <div class="admin-panel__head">
+          <h2>المشاريع الحالية</h2>
+          <button type="button" class="admin-btn admin-btn--ghost" data-refresh="projects">تحديث</button>
+        </div>
+        <div id="projects-list" class="admin-projects-list"></div>
+      </section>
+    </div>
+
+    <!-- Clients -->
+    <div class="admin-tab-panel" data-panel="clients">
+      <section class="admin-panel">
+        <h2 id="client-form-title">إضافة عميل</h2>
+        <form id="client-form" class="admin-form admin-form--grid">
+          <input type="hidden" id="client-id">
+          <div class="admin-field">
+            <label for="client-name">اسم العميل / الشركة</label>
+            <input type="text" id="client-name" required>
+          </div>
+          <div class="admin-field">
+            <label for="client-sort">الترتيب</label>
+            <input type="number" id="client-sort" value="0" min="0">
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="client-image">الصورة / الشعار</label>
+            <input type="file" id="client-image" accept="image/jpeg,image/png,image/webp">
+            <small id="client-image-hint">مطلوبة عند الإضافة.</small>
+          </div>
+          <div class="admin-field admin-field--full admin-form__actions">
+            <button type="submit" class="admin-btn admin-btn--primary">حفظ العميل</button>
+            <button type="button" class="admin-btn admin-btn--ghost" id="client-cancel" hidden>إلغاء</button>
+          </div>
+        </form>
+        <p class="admin-message" id="client-message" hidden></p>
+      </section>
+      <section class="admin-panel">
+        <div class="admin-panel__head">
+          <h2>قائمة العملاء</h2>
+          <button type="button" class="admin-btn admin-btn--ghost" data-refresh="clients">تحديث</button>
+        </div>
+        <div id="clients-list" class="admin-projects-list"></div>
+      </section>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="admin-tab-panel" data-panel="testimonials">
+      <section class="admin-panel">
+        <h2 id="testimonial-form-title">إضافة رأي عميل</h2>
+        <form id="testimonial-form" class="admin-form admin-form--grid">
+          <input type="hidden" id="testimonial-id">
+          <div class="admin-field admin-field--full">
+            <label for="testimonial-quote">نص الشهادة</label>
+            <textarea id="testimonial-quote" rows="3" required></textarea>
+          </div>
+          <div class="admin-field">
+            <label for="testimonial-author">اسم العميل</label>
+            <input type="text" id="testimonial-author" required>
+          </div>
+          <div class="admin-field">
+            <label for="testimonial-role">المنصب / الشركة</label>
+            <input type="text" id="testimonial-role">
+          </div>
+          <div class="admin-field">
+            <label for="testimonial-rating">التقييم (1–5)</label>
+            <input type="number" id="testimonial-rating" value="5" min="1" max="5">
+          </div>
+          <div class="admin-field">
+            <label for="testimonial-sort">الترتيب</label>
+            <input type="number" id="testimonial-sort" value="0" min="0">
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="testimonial-image">صورة العميل</label>
+            <input type="file" id="testimonial-image" accept="image/jpeg,image/png,image/webp">
+            <small id="testimonial-image-hint">اختيارية — تُستخدم صورة افتراضية إن تُركت فارغة.</small>
+          </div>
+          <div class="admin-field admin-field--full admin-form__actions">
+            <button type="submit" class="admin-btn admin-btn--primary">حفظ الشهادة</button>
+            <button type="button" class="admin-btn admin-btn--ghost" id="testimonial-cancel" hidden>إلغاء</button>
+          </div>
+        </form>
+        <p class="admin-message" id="testimonial-message" hidden></p>
+      </section>
+      <section class="admin-panel">
+        <div class="admin-panel__head">
+          <h2>الشهادات الحالية</h2>
+          <button type="button" class="admin-btn admin-btn--ghost" data-refresh="testimonials">تحديث</button>
+        </div>
+        <div id="testimonials-list" class="admin-projects-list"></div>
+      </section>
+    </div>
+
+    <!-- Blog -->
+    <div class="admin-tab-panel" data-panel="blog">
+      <section class="admin-panel">
+        <h2 id="blog-form-title">إضافة مقال</h2>
+        <form id="blog-form" class="admin-form admin-form--grid">
+          <input type="hidden" id="blog-id">
+          <div class="admin-field">
+            <label for="blog-title">عنوان المقال</label>
+            <input type="text" id="blog-title" required>
+          </div>
+          <div class="admin-field">
+            <label for="blog-category">التصنيف</label>
+            <input type="text" id="blog-category" placeholder="حلول تقنية">
+          </div>
+          <div class="admin-field">
+            <label for="blog-author">الكاتب</label>
+            <input type="text" id="blog-author">
+          </div>
+          <div class="admin-field">
+            <label for="blog-date">التاريخ المعروض</label>
+            <input type="text" id="blog-date" placeholder="24 يونيو 2023">
+          </div>
+          <div class="admin-field">
+            <label for="blog-link">رابط المقال</label>
+            <input type="text" id="blog-link" value="news-details.html">
+          </div>
+          <div class="admin-field">
+            <label for="blog-sort">الترتيب</label>
+            <input type="number" id="blog-sort" value="0" min="0">
+          </div>
+          <div class="admin-field admin-field--full">
+            <label for="blog-image">صورة المقال</label>
+            <input type="file" id="blog-image" accept="image/jpeg,image/png,image/webp">
+            <small id="blog-image-hint">مطلوبة عند الإضافة.</small>
+          </div>
+          <div class="admin-field admin-field--full admin-form__actions">
+            <button type="submit" class="admin-btn admin-btn--primary">حفظ المقال</button>
+            <button type="button" class="admin-btn admin-btn--ghost" id="blog-cancel" hidden>إلغاء</button>
+          </div>
+        </form>
+        <p class="admin-message" id="blog-message" hidden></p>
+      </section>
+      <section class="admin-panel">
+        <div class="admin-panel__head">
+          <h2>مقالات المدونة</h2>
+          <button type="button" class="admin-btn admin-btn--ghost" data-refresh="blog">تحديث</button>
+        </div>
+        <div id="blog-list" class="admin-projects-list"></div>
+      </section>
+    </div>
+
+    <!-- Settings / page images -->
+    <div class="admin-tab-panel" data-panel="settings">
+      <section class="admin-panel">
+        <h2>صور ونصوص الصفحة الرئيسية</h2>
+        <form id="settings-form" class="admin-form admin-form--grid">
+          <div class="admin-field admin-field--full">
+            <label for="clients-label">نص شريط العملاء</label>
+            <input type="text" id="clients-label">
+          </div>
+          <div class="admin-field">
+            <label for="about-image">صورة قسم «من نحن»</label>
+            <input type="file" id="about-image" accept="image/jpeg,image/png,image/webp">
+            <div class="admin-preview" id="about-preview"></div>
+          </div>
+          <div class="admin-field">
+            <label for="contact-image">صورة قسم «اتصل بنا»</label>
+            <input type="file" id="contact-image" accept="image/jpeg,image/png,image/webp">
+            <div class="admin-preview" id="contact-preview"></div>
+          </div>
+          <div class="admin-field admin-field--full admin-form__actions">
+            <button type="submit" class="admin-btn admin-btn--primary">حفظ الإعدادات</button>
+          </div>
+        </form>
+        <p class="admin-message" id="settings-message" hidden></p>
+      </section>
+    </div>
+  </main>
+
+  <script>window.PST_API_URL = "https://sitesoftwear.vercel.app";</script>
+  <script src="admin.js"></script>
+  <script>
+    AdminApp.guardDashboardPage();
+    AdminApp.initDashboard();
+  </script>
+</body>
+</html>

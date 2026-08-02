@@ -108,9 +108,9 @@
     <section class="clients-faces-bar-wrapper pst-clients-bar">
         <p class="pst-clients-bar__label">يثق بنا شركاء من مختلف القطاعات</p>
         <div class="clients-faces-bar wow fadeInUp" data-wow-delay=".3s">
-            <div class="clients-marquee">
+                <div class="clients-marquee">
                 <div class="clients-marquee-track">
-                    <div class="clients-marquee-set">
+                    <div class="clients-marquee-set" id="pst-clients-set">
                         <div class="single-client-face">
                             <div class="client-face-img"><img src="assets/img/client1.jpg" alt="Business client"></div>
                             <span>Global Tech</span>
@@ -158,7 +158,7 @@
             <div class="row align-center">
                 <div class="col-lg-6 col-12">
                     <div class="pst-about-visual wow fadeInUp">
-                        <img src="assets/img/about-img.jpg" class="pst-about-visual__img" alt="Power Solution Tech">
+                        <img id="pst-about-image" src="assets/img/about-img.jpg" class="pst-about-visual__img" alt="Power Solution Tech">
                         <div class="pst-about-visual__badge">
                             <strong>+10</strong>
                             <span>سنوات خبرة</span>
@@ -316,43 +316,37 @@
                     </div>
                 </div>
                 <div class="col-lg-6 text-lg-end text-center mt-4 mt-lg-0">
-                    <div class="premium-filter case-cat-filter">
+                    <div class="premium-filter">
                         <button data-filter="*" class="active">الكل</button>
-                        <button data-filter=".web">ويب</button>
-                        <button data-filter=".systems">أنظمة</button>
-                        <button data-filter=".apps">تطبيقات</button>
+                        <button data-filter="web">ويب</button>
+                        <button data-filter="systems">أنظمة</button>
+                        <button data-filter="apps">تطبيقات</button>
                     </div>
                 </div>
             </div>
 
-            <div class="row grid pst-projects-grid">
-                <div class="col-xl-4 col-md-6 grid-item web">
-                    <article class="premium-project-card" style="background-image: url('assets/img/project/1.jpg')">
-                        <div class="premium-project-card__content">
-                            <span class="premium-project-card__tag">ويب</span>
-                            <h3>منصة تجارة إلكترونية</h3>
-                            <p>متجر متكامل مع بوابة دفع</p>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xl-4 col-md-6 grid-item systems">
-                    <article class="premium-project-card" style="background-image: url('assets/img/project/2.jpg')">
-                        <div class="premium-project-card__content">
-                            <span class="premium-project-card__tag">أنظمة</span>
-                            <h3>نظام إدارة موارد</h3>
-                            <p>ERP مخصص لشركة لوجستية</p>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xl-4 col-md-6 grid-item apps">
-                    <article class="premium-project-card" style="background-image: url('assets/img/project/3.jpg')">
-                        <div class="premium-project-card__content">
-                            <span class="premium-project-card__tag">تطبيقات</span>
-                            <h3>تطبيق توصيل</h3>
-                            <p>iOS و Android مع تتبع لحظي</p>
-                        </div>
-                    </article>
-                </div>
+            <div class="premium-projects-grid pst-home-projects-grid" id="pst-home-projects-grid">
+                <article class="premium-project-card" data-category="web" style="background-image: url('assets/img/project/1.jpg')">
+                    <div class="premium-project-card__content">
+                        <span class="premium-project-card__tag">ويب</span>
+                        <h3>منصة تجارة إلكترونية</h3>
+                        <p>متجر متكامل مع بوابة دفع</p>
+                    </div>
+                </article>
+                <article class="premium-project-card" data-category="systems" style="background-image: url('assets/img/project/2.jpg')">
+                    <div class="premium-project-card__content">
+                        <span class="premium-project-card__tag">أنظمة</span>
+                        <h3>نظام إدارة موارد</h3>
+                        <p>ERP مخصص لشركة لوجستية</p>
+                    </div>
+                </article>
+                <article class="premium-project-card" data-category="apps" style="background-image: url('assets/img/project/3.jpg')">
+                    <div class="premium-project-card__content">
+                        <span class="premium-project-card__tag">تطبيقات</span>
+                        <h3>تطبيق توصيل</h3>
+                        <p>iOS و Android مع تتبع لحظي</p>
+                    </div>
+                </article>
             </div>
             <div class="pst-section-cta">
                 <a href="projects.html" class="pst-btn-glass">جميع المشاريع ←</a>
@@ -382,7 +376,7 @@
                     <a href="contact.html" class="pst-btn-primary">تواصل معنا ←</a>
                 </div>
                 <div class="col-xl-7">
-                    <div class="customer-feedback-carousel-active pst-testimonial-slider mt-4 mt-xl-0">
+                    <div class="customer-feedback-carousel-active pst-testimonial-slider mt-4 mt-xl-0" id="pst-testimonials-slider">
                         <div class="pst-testimonial-card">
                             <div class="pst-testimonial-card__stars">
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
@@ -454,7 +448,7 @@
                 </div>
                 <div class="col-lg-5 col-xl-5 offset-xl-1 mt-5 mt-lg-0">
                     <div class="pst-contact-panel wow fadeInUp">
-                        <img src="assets/img/contact-img.jpg" alt="تواصل مع Power Solution Tech">
+                        <img id="pst-contact-image" src="assets/img/contact-img.jpg" alt="تواصل مع Power Solution Tech">
                         <div class="pst-contact-panel__info">
                             <div class="pst-contact-panel__item">
                                 <i class="fal fa-envelope"></i>
@@ -486,7 +480,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" id="pst-blog-grid">
                 <div class="col-xl-4 col-md-6 col-12">
                     <div class="single-news-box">
                         <div class="featured-thumb bg-cover" style="background-image: url('assets/img/blog/b1.jpg')">
@@ -599,6 +593,9 @@
     <script src="assets/js/metismenu.js"></script>
     <script src="assets/js/nice-select2.js"></script>
     <script src="assets/js/active.js"></script>
+    <script>window.PST_API_URL = "https://sitesoftwear.vercel.app";</script>
+    <script type="module" src="assets/js/projects-display.js"></script>
+    <script type="module" src="assets/js/home-content.js"></script>
     <script type="module" src="assets/js/premium-layout.js"></script>
 </body>
 

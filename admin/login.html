@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول | لوحة التحكم</title>
+  <link rel="shortcut icon" href="../assets/img/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-auth">
+    <div class="admin-auth__card">
+      <div class="admin-auth__logo">
+        <svg width="40" height="40" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="4" y="4" width="11" height="11" rx="2" fill="#8b5cf6"/>
+          <rect x="17" y="4" width="11" height="11" rx="2" fill="#7c3aed" opacity="0.85"/>
+          <rect x="4" y="17" width="11" height="11" rx="2" fill="#3b82f6" opacity="0.9"/>
+          <rect x="17" y="17" width="11" height="11" rx="2" fill="#6366f1"/>
+        </svg>
+        <h1>لوحة التحكم</h1>
+        <p>Power Solution Tech</p>
+      </div>
+      <form id="login-form" class="admin-form">
+        <label for="username">اسم المستخدم</label>
+        <input type="text" id="username" name="username" required autocomplete="username">
+        <label for="password">كلمة المرور</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password">
+        <p id="login-error" class="admin-error" hidden></p>
+        <button type="submit" class="admin-btn admin-btn--primary">دخول</button>
+      </form>
+    </div>
+  </div>
+  <script>window.PST_API_URL = "https://sitesoftwear.vercel.app";</script>
+  <script src="admin.js"></script>
+  <script>
+    AdminApp.guardLoginPage();
+    document.getElementById("login-form").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const errorEl = document.getElementById("login-error");
+      errorEl.hidden = true;
+      try {
+        await AdminApp.login(
+          document.getElementById("username").value.trim(),
+          document.getElementById("password").value
+        );
+        window.location.href = "dashboard.html";
+      } catch (error) {
+        errorEl.textContent = error.message;
+        errorEl.hidden = false;
+      }
+    });
+  </script>
+</body>
+</html>
